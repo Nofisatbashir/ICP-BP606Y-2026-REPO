@@ -27,7 +27,7 @@ The goal of this task is to understand event-driven architecture, serverless com
 
 ## Implementation Steps
 
-### 1. Create the Lambda Function
+## 1. Create the Lambda Function
 - Runtime: Python / Node.js
 - Execution role with basic logging permissions
 - Function logic handles incoming events and returns a JSON response
@@ -38,53 +38,67 @@ Example response:
   "statusCode": 200,
   "body": "Hello from AWS Lambda!"
 }
+```
+---
 
-2. Configure API Gateway
+## 2. Configure API Gateway
 - Create an HTTP API
 - Add Lambda as the integration target
 - Configure routes (e.g., GET /hello)
 - Enable auto-deployment to a default stage
 
-3. Permissions Configuration
+## 3. Permissions Configuration
 - Grant API Gateway permission to invoke the Lambda function using IAM
 
 - Ensure least-privilege access is enforced
 
-4. Test the API
-Copy the API endpoint URL
-Test using:
-Browser
-Postman
-curl command
+## 4. Test the API
 
-##Cold Start Considerations
+Copy the API endpoint URL
+
+Test using:
+
+- Browser
+- Postman
+- curl command
+
+## Cold Start Considerations
+
 Cold starts occur when AWS initializes a Lambda execution environment after a period of inactivity.
 
-##Key Observations:
+## Key Observations:
 
 - First request may have slightly higher latency
 - Subsequent requests are faster (warm start)
 - Runtime choice and package size impact cold start duration
 
-##Best Practices:
+## Best Practices:
 
 - Keep function code lightweight
 - Avoid unnecessary dependencies
 - Use appropriate memory allocation
 - Consider provisioned concurrency for latency-sensitive workloads
 
-###Deliverables
+### Deliverables
+
 Lambda function source code
+
 API Gateway endpoint URL
+
 Screenshot of successful API invocation
 
 
-Learning Outcomes
+## Learning Outcomes
+
 Understand serverless architecture and event-driven systems
+
 Deploy and invoke AWS Lambda functions
+
 Integrate Lambda with API Gateway
+
 Manage permissions using IAM
+
 Identify and mitigate cold start behavior
 
-Conclusion
+## Conclusion
 This project highlights the power of serverless computing by building a fully functional API without managing servers. Using AWS Lambda and API Gateway enables rapid development, automatic scaling, and cost-efficient execution, making it ideal for modern cloud-native applications.
