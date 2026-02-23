@@ -33,10 +33,8 @@ This project uses an S3 backend to:
 
 ---
 
-###Project Structure
-```json
-{
-
+### Project Structure
+```
 .
 ├── backend.tf
 ├── main.tf
@@ -44,7 +42,7 @@ This project uses an S3 backend to:
 ├── .terraform.lock.hcl
 ├── README.md
 └── .gitignore
-}
+```
 
 ## File Descriptions
 backend.tf → Configures S3 remote backend
@@ -57,19 +55,18 @@ outputs.tf → Defines output values
 ### Backend Configuration (S3 + DynamoDB)
 
 Example backend configuration:
-```json
-{
+```hcl
 
 terraform {
   backend "s3" {
     bucket         = "your-terraform-state-bucket"
     key            = "week5/terraform.tfstate"
-    region         = "us-east-1"
+    region         = "eu-north-1"
     dynamodb_table = "terraform-lock-table"
     encrypt        = true
   }
 }
-
+```
 ---
 ## Key Features
 bucket → S3 bucket storing state file
@@ -80,64 +77,70 @@ encrypt = true → Enables server-side encryption
 # How to Run the Project
 1. Initialize Terraform
 
-```json
-{
+```bash
 
 terraform init
 
-}
+```
 
 - Downloads required providers
 - Configures remote backend
 
-2. Validate Configuration 
-```json
-{
+2. Validate Configuration
+ ```bash
 
 terraform validate
 
-}
+```
 
-3. Preview Infrastructure Plan
-```json
-{
+4. Preview Infrastructure Plan
+   
+```bash
 
 terraform plan
 
-}
+```
 
 4. Apply Configuration 
-```json
-{
+```bash
 
 terraform apply
 
-}
+```
 
 - Confirm with yes when prompted
 
 5. Destroy Infrastructure (Optional Cleanup)
 
-```json
-{
+```bash
 
 terraform destroy
 
-}
+```
 
 ## Best Practices Implemented
+
 Remote state storage (S3 backend)
+
 State locking with DynamoDB
+
 Encryption enabled for backend
+
 .gitignore excludes:
+
 .terraform/
+
 *.tfstate
+
 *.tfplan
+
 Version locking via .terraform.lock.hcl
 
 # Important Notes
 The .terraform directory is excluded from version control because it contains provider binaries and local cache files.
+
 State files are stored remotely and should not be committed to GitHub.
+
 Always run terraform init after cloning the repository.
 
 ## Learning Outcomes
