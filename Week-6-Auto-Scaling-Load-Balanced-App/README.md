@@ -39,7 +39,7 @@ Apache (httpd)
 - Demonstrate high availability
 
 ## Implementation Steps
-1️. Launch Template Configuration
+1. Launch Template Configuration
 
 A Launch Template was created with:
 
@@ -78,6 +78,8 @@ EOF'
 
 - Forwarding rule to Target Group
 
+---
+
 3. Target Group
 
 - Protocol: HTTP
@@ -87,6 +89,8 @@ EOF'
 - Health Check Path: ' / '
 
 - Verified instances show Healthy
+
+---
 
 4. Auto Scaling Group
 
@@ -99,6 +103,8 @@ Configured with:
 - Maximum Capacity: 3 (or more)
 
 - Scaling Policy: Target Tracking (CPU Utilization ~ 50–60%)
+
+---
 
 ## Auto Scaling Demonstration
  Stress Testing
